@@ -6,8 +6,12 @@
 //  Copyright (c) 2012 PlacePop. All rights reserved.
 //
 
+#import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
+#import <CoreFoundation/CoreFoundation.h>
 
-@interface UIViewLayout : NSObject
+@interface LayoutRule
+
++(NSArray*)rulesWithString:(NSString*)string ;
 
 @end

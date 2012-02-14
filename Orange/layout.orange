@@ -1,0 +1,44 @@
+.itemImageView 
+{
+	.top <= 
+		+ 
+			20 
+			max 
+				.itemImageContainer.bottom 
+				.notesLabel.bottom ;
+}
+
+.likesAndCommentsContainer 
+{
+	.top <= + 20 max .itemImageView.bottom .itemLabel.bottom ;
+}
+
+.notesLabel 
+{
+	.left <= ? self.itemImageView.hidden .superview.bounds.left self.itemImageView.right ;
+	.height <= .preferredSize.height ;
+	.preferredSize <= 
+		:sizeThatFits: 
+			size 
+				Float.MAX 
+				- 
+					.superview.bounds.right 
+					? 
+						self.itemImageView.hidden 
+						.superview.bounds.left 
+						self.itemImageView.right 
+		;
+}
+
+preferredSize.height <= 
+	+ 
+		sum .subviews.preferredSize.height 
+		* 20 - .subviews.count 1
+	;
+
+
+
+.subviews {
+	.top <= + 20 @.previous.bottom ;
+}
+	

@@ -1,0 +1,592 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B82E2A6014EA85AC00CC8F6E /* Orange.lm in Sources */ = {isa = PBXBuildFile; fileRef = B82E2A5E14EA85AC00CC8F6E /* Orange.lm */; };
+		B82E2A6114EA85AC00CC8F6E /* Orange.ym in Sources */ = {isa = PBXBuildFile; fileRef = B82E2A5F14EA85AC00CC8F6E /* Orange.ym */; };
+		B82E2A6F14EA85C800CC8F6E /* NSObject+Orange.h in Headers */ = {isa = PBXBuildFile; fileRef = B82E2A6214EA85C800CC8F6E /* NSObject+Orange.h */; };
+		B82E2A7014EA85C800CC8F6E /* NSObject+Orange.m in Sources */ = {isa = PBXBuildFile; fileRef = B82E2A6314EA85C800CC8F6E /* NSObject+Orange.m */; };
+		B82E2A7114EA85C800CC8F6E /* OrangeAssignment.h in Headers */ = {isa = PBXBuildFile; fileRef = B82E2A6414EA85C800CC8F6E /* OrangeAssignment.h */; };
+		B82E2A7214EA85C800CC8F6E /* OrangeAssignment.m in Sources */ = {isa = PBXBuildFile; fileRef = B82E2A6514EA85C800CC8F6E /* OrangeAssignment.m */; };
+		B82E2A7314EA85C800CC8F6E /* OrangeExpression.h in Headers */ = {isa = PBXBuildFile; fileRef = B82E2A6614EA85C800CC8F6E /* OrangeExpression.h */; };
+		B82E2A7414EA85C800CC8F6E /* OrangeExpression.m in Sources */ = {isa = PBXBuildFile; fileRef = B82E2A6714EA85C800CC8F6E /* OrangeExpression.m */; };
+		B82E2A7514EA85C800CC8F6E /* OrangeLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = B82E2A6814EA85C800CC8F6E /* OrangeLayout.h */; };
+		B82E2A7614EA85C800CC8F6E /* OrangeLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = B82E2A6914EA85C800CC8F6E /* OrangeLayout.m */; };
+		B82E2A7714EA85C800CC8F6E /* OrangeLayoutPrivate.h in Headers */ = {isa = PBXBuildFile; fileRef = B82E2A6A14EA85C800CC8F6E /* OrangeLayoutPrivate.h */; };
+		B82E2A7814EA85C800CC8F6E /* OrangeTarget.h in Headers */ = {isa = PBXBuildFile; fileRef = B82E2A6B14EA85C800CC8F6E /* OrangeTarget.h */; };
+		B82E2A7914EA85C800CC8F6E /* OrangeTarget.m in Sources */ = {isa = PBXBuildFile; fileRef = B82E2A6C14EA85C800CC8F6E /* OrangeTarget.m */; };
+		B82E2A7A14EA85C800CC8F6E /* UIView+Orange.h in Headers */ = {isa = PBXBuildFile; fileRef = B82E2A6D14EA85C800CC8F6E /* UIView+Orange.h */; };
+		B82E2A7B14EA85C800CC8F6E /* UIView+Orange.m in Sources */ = {isa = PBXBuildFile; fileRef = B82E2A6E14EA85C800CC8F6E /* UIView+Orange.m */; };
+		B82E2A7C14EA860300CC8F6E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B862350E14E9D9FD0080B174 /* UIKit.framework */; };
+		B82E2A7D14EA863C00CC8F6E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B862350E14E9D9FD0080B174 /* UIKit.framework */; };
+		B85F9AE114E3D074002C906C /* libOrange.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B85F9AC914E3D074002C906C /* libOrange.a */; };
+		B862351114E9DA010080B174 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B862351014E9DA010080B174 /* CoreFoundation.framework */; };
+		B862351214E9DA060080B174 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B862350814E9D7FC0080B174 /* CoreGraphics.framework */; };
+		B862351C14E9DAA90080B174 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B862351B14E9DAA90080B174 /* Foundation.framework */; };
+		B862351E14E9DAA90080B174 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B862351D14E9DAA90080B174 /* CoreGraphics.framework */; };
+		B862352414E9DAA90080B174 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B862352214E9DAA90080B174 /* InfoPlist.strings */; };
+		B862352614E9DAA90080B174 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B862352514E9DAA90080B174 /* main.m */; };
+		B862352A14E9DAA90080B174 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B862352914E9DAA90080B174 /* AppDelegate.m */; };
+		B862353014E9DAB50080B174 /* libOrange.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B85F9AC914E3D074002C906C /* libOrange.a */; };
+		B8BA9D8414EA6E1600A96485 /* test.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8BA9D8214EA6E1600A96485 /* test.xib */; };
+		B8FD5FC114E4F9260085E2D1 /* layout.orange in Resources */ = {isa = PBXBuildFile; fileRef = B85F9B4114E3D71C002C906C /* layout.orange */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		B85F9ADF14E3D074002C906C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B85F9AC014E3D074002C906C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B85F9AC814E3D074002C906C;
+			remoteInfo = UIViewLayout;
+		};
+		B862352E14E9DAB10080B174 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B85F9AC014E3D074002C906C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B85F9AC814E3D074002C906C;
+			remoteInfo = UIViewLayout;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		B82E2A5E14EA85AC00CC8F6E /* Orange.lm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.lex; name = Orange.lm; path = Orange/Orange.lm; sourceTree = SOURCE_ROOT; };
+		B82E2A5F14EA85AC00CC8F6E /* Orange.ym */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.yacc; name = Orange.ym; path = Orange/Orange.ym; sourceTree = SOURCE_ROOT; };
+		B82E2A6214EA85C800CC8F6E /* NSObject+Orange.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSObject+Orange.h"; path = "Orange/NSObject+Orange.h"; sourceTree = SOURCE_ROOT; };
+		B82E2A6314EA85C800CC8F6E /* NSObject+Orange.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSObject+Orange.m"; path = "Orange/NSObject+Orange.m"; sourceTree = SOURCE_ROOT; };
+		B82E2A6414EA85C800CC8F6E /* OrangeAssignment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OrangeAssignment.h; path = Orange/OrangeAssignment.h; sourceTree = SOURCE_ROOT; };
+		B82E2A6514EA85C800CC8F6E /* OrangeAssignment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OrangeAssignment.m; path = Orange/OrangeAssignment.m; sourceTree = SOURCE_ROOT; };
+		B82E2A6614EA85C800CC8F6E /* OrangeExpression.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OrangeExpression.h; path = Orange/OrangeExpression.h; sourceTree = SOURCE_ROOT; };
+		B82E2A6714EA85C800CC8F6E /* OrangeExpression.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OrangeExpression.m; path = Orange/OrangeExpression.m; sourceTree = SOURCE_ROOT; };
+		B82E2A6814EA85C800CC8F6E /* OrangeLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OrangeLayout.h; path = Orange/OrangeLayout.h; sourceTree = SOURCE_ROOT; };
+		B82E2A6914EA85C800CC8F6E /* OrangeLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OrangeLayout.m; path = Orange/OrangeLayout.m; sourceTree = SOURCE_ROOT; };
+		B82E2A6A14EA85C800CC8F6E /* OrangeLayoutPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OrangeLayoutPrivate.h; path = Orange/OrangeLayoutPrivate.h; sourceTree = SOURCE_ROOT; };
+		B82E2A6B14EA85C800CC8F6E /* OrangeTarget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OrangeTarget.h; path = Orange/OrangeTarget.h; sourceTree = SOURCE_ROOT; };
+		B82E2A6C14EA85C800CC8F6E /* OrangeTarget.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OrangeTarget.m; path = Orange/OrangeTarget.m; sourceTree = SOURCE_ROOT; };
+		B82E2A6D14EA85C800CC8F6E /* UIView+Orange.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+Orange.h"; path = "Orange/UIView+Orange.h"; sourceTree = SOURCE_ROOT; };
+		B82E2A6E14EA85C800CC8F6E /* UIView+Orange.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+Orange.m"; path = "Orange/UIView+Orange.m"; sourceTree = SOURCE_ROOT; };
+		B85F9AC914E3D074002C906C /* libOrange.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libOrange.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		B85F9AD014E3D074002C906C /* Orange-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "Orange-Prefix.pch"; path = "Orange/Orange-Prefix.pch"; sourceTree = "<group>"; };
+		B85F9AD914E3D074002C906C /* UIViewLayoutTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = UIViewLayoutTests.octest; path = OrangeTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B85F9B4114E3D71C002C906C /* layout.orange */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 2; lastKnownFileType = file; name = layout.orange; path = Orange/layout.orange; sourceTree = "<group>"; tabWidth = 2; };
+		B862350814E9D7FC0080B174 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		B862350C14E9D8860080B174 /* ApplicationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ApplicationServices.framework; path = /System/Library/Frameworks/ApplicationServices.framework; sourceTree = "<absolute>"; };
+		B862350E14E9D9FD0080B174 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		B862351014E9DA010080B174 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
+		B862351714E9DAA90080B174 /* test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = test.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B862351B14E9DAA90080B174 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		B862351D14E9DAA90080B174 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		B862352114E9DAA90080B174 /* test-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "test-Info.plist"; sourceTree = "<group>"; };
+		B862352314E9DAA90080B174 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		B862352514E9DAA90080B174 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		B862352714E9DAA90080B174 /* test-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "test-Prefix.pch"; sourceTree = "<group>"; };
+		B862352814E9DAA90080B174 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		B862352914E9DAA90080B174 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		B8BA9D8314EA6E1600A96485 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/test.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B85F9AC614E3D074002C906C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B82E2A7C14EA860300CC8F6E /* UIKit.framework in Frameworks */,
+				B862351214E9DA060080B174 /* CoreGraphics.framework in Frameworks */,
+				B862351114E9DA010080B174 /* CoreFoundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B85F9AD514E3D074002C906C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B85F9AE114E3D074002C906C /* libOrange.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B862351414E9DAA90080B174 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B82E2A7D14EA863C00CC8F6E /* UIKit.framework in Frameworks */,
+				B862353014E9DAB50080B174 /* libOrange.a in Frameworks */,
+				B862351C14E9DAA90080B174 /* Foundation.framework in Frameworks */,
+				B862351E14E9DAA90080B174 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		B85F9ABE14E3D074002C906C = {
+			isa = PBXGroup;
+			children = (
+				B85F9ACE14E3D074002C906C /* UIViewLayout */,
+				B862351F14E9DAA90080B174 /* test */,
+				B85F9ACB14E3D074002C906C /* Frameworks */,
+				B85F9ACA14E3D074002C906C /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		B85F9ACA14E3D074002C906C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B85F9AC914E3D074002C906C /* libOrange.a */,
+				B85F9AD914E3D074002C906C /* UIViewLayoutTests.octest */,
+				B862351714E9DAA90080B174 /* test.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B85F9ACB14E3D074002C906C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B862351014E9DA010080B174 /* CoreFoundation.framework */,
+				B862350E14E9D9FD0080B174 /* UIKit.framework */,
+				B862350C14E9D8860080B174 /* ApplicationServices.framework */,
+				B862350814E9D7FC0080B174 /* CoreGraphics.framework */,
+				B862351B14E9DAA90080B174 /* Foundation.framework */,
+				B862351D14E9DAA90080B174 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B85F9ACE14E3D074002C906C /* UIViewLayout */ = {
+			isa = PBXGroup;
+			children = (
+				B82E2A6214EA85C800CC8F6E /* NSObject+Orange.h */,
+				B82E2A6314EA85C800CC8F6E /* NSObject+Orange.m */,
+				B82E2A6414EA85C800CC8F6E /* OrangeAssignment.h */,
+				B82E2A6514EA85C800CC8F6E /* OrangeAssignment.m */,
+				B82E2A6614EA85C800CC8F6E /* OrangeExpression.h */,
+				B82E2A6714EA85C800CC8F6E /* OrangeExpression.m */,
+				B82E2A6814EA85C800CC8F6E /* OrangeLayout.h */,
+				B82E2A6914EA85C800CC8F6E /* OrangeLayout.m */,
+				B82E2A6A14EA85C800CC8F6E /* OrangeLayoutPrivate.h */,
+				B82E2A6B14EA85C800CC8F6E /* OrangeTarget.h */,
+				B82E2A6C14EA85C800CC8F6E /* OrangeTarget.m */,
+				B82E2A6D14EA85C800CC8F6E /* UIView+Orange.h */,
+				B82E2A6E14EA85C800CC8F6E /* UIView+Orange.m */,
+				B85F9ACF14E3D074002C906C /* Supporting Files */,
+			);
+			path = UIViewLayout;
+			sourceTree = "<group>";
+		};
+		B85F9ACF14E3D074002C906C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				B82E2A5E14EA85AC00CC8F6E /* Orange.lm */,
+				B82E2A5F14EA85AC00CC8F6E /* Orange.ym */,
+				B85F9AD014E3D074002C906C /* Orange-Prefix.pch */,
+				B85F9B4114E3D71C002C906C /* layout.orange */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B862351F14E9DAA90080B174 /* test */ = {
+			isa = PBXGroup;
+			children = (
+				B862352814E9DAA90080B174 /* AppDelegate.h */,
+				B862352914E9DAA90080B174 /* AppDelegate.m */,
+				B862352014E9DAA90080B174 /* Supporting Files */,
+			);
+			path = test;
+			sourceTree = "<group>";
+		};
+		B862352014E9DAA90080B174 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				B862352114E9DAA90080B174 /* test-Info.plist */,
+				B862352214E9DAA90080B174 /* InfoPlist.strings */,
+				B862352514E9DAA90080B174 /* main.m */,
+				B862352714E9DAA90080B174 /* test-Prefix.pch */,
+				B8BA9D8214EA6E1600A96485 /* test.xib */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		B85F9AC714E3D074002C906C /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B82E2A6F14EA85C800CC8F6E /* NSObject+Orange.h in Headers */,
+				B82E2A7114EA85C800CC8F6E /* OrangeAssignment.h in Headers */,
+				B82E2A7314EA85C800CC8F6E /* OrangeExpression.h in Headers */,
+				B82E2A7514EA85C800CC8F6E /* OrangeLayout.h in Headers */,
+				B82E2A7714EA85C800CC8F6E /* OrangeLayoutPrivate.h in Headers */,
+				B82E2A7814EA85C800CC8F6E /* OrangeTarget.h in Headers */,
+				B82E2A7A14EA85C800CC8F6E /* UIView+Orange.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		B85F9AC814E3D074002C906C /* Orange */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B85F9AED14E3D074002C906C /* Build configuration list for PBXNativeTarget "Orange" */;
+			buildPhases = (
+				B85F9AC514E3D074002C906C /* Sources */,
+				B85F9AC614E3D074002C906C /* Frameworks */,
+				B85F9AC714E3D074002C906C /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Orange;
+			productName = UIViewLayout;
+			productReference = B85F9AC914E3D074002C906C /* libOrange.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		B85F9AD814E3D074002C906C /* OrangeTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B85F9AF014E3D074002C906C /* Build configuration list for PBXNativeTarget "OrangeTests" */;
+			buildPhases = (
+				B85F9AD414E3D074002C906C /* Sources */,
+				B85F9AD514E3D074002C906C /* Frameworks */,
+				B85F9AD614E3D074002C906C /* Resources */,
+				B85F9AD714E3D074002C906C /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B85F9AE014E3D074002C906C /* PBXTargetDependency */,
+			);
+			name = OrangeTests;
+			productName = UIViewLayoutTests;
+			productReference = B85F9AD914E3D074002C906C /* UIViewLayoutTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+		B862351614E9DAA90080B174 /* test */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B862352B14E9DAA90080B174 /* Build configuration list for PBXNativeTarget "test" */;
+			buildPhases = (
+				B862351314E9DAA90080B174 /* Sources */,
+				B862351414E9DAA90080B174 /* Frameworks */,
+				B862351514E9DAA90080B174 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B862352F14E9DAB10080B174 /* PBXTargetDependency */,
+			);
+			name = test;
+			productName = test;
+			productReference = B862351714E9DAA90080B174 /* test.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B85F9AC014E3D074002C906C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0430;
+				ORGANIZATIONNAME = nielsbot;
+			};
+			buildConfigurationList = B85F9AC314E3D074002C906C /* Build configuration list for PBXProject "Orange" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = B85F9ABE14E3D074002C906C;
+			productRefGroup = B85F9ACA14E3D074002C906C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B85F9AC814E3D074002C906C /* Orange */,
+				B85F9AD814E3D074002C906C /* OrangeTests */,
+				B862351614E9DAA90080B174 /* test */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B85F9AD614E3D074002C906C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B8FD5FC114E4F9260085E2D1 /* layout.orange in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B862351514E9DAA90080B174 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B862352414E9DAA90080B174 /* InfoPlist.strings in Resources */,
+				B8BA9D8414EA6E1600A96485 /* test.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		B85F9AD714E3D074002C906C /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B85F9AC514E3D074002C906C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B82E2A6014EA85AC00CC8F6E /* Orange.lm in Sources */,
+				B82E2A6114EA85AC00CC8F6E /* Orange.ym in Sources */,
+				B82E2A7014EA85C800CC8F6E /* NSObject+Orange.m in Sources */,
+				B82E2A7214EA85C800CC8F6E /* OrangeAssignment.m in Sources */,
+				B82E2A7414EA85C800CC8F6E /* OrangeExpression.m in Sources */,
+				B82E2A7614EA85C800CC8F6E /* OrangeLayout.m in Sources */,
+				B82E2A7914EA85C800CC8F6E /* OrangeTarget.m in Sources */,
+				B82E2A7B14EA85C800CC8F6E /* UIView+Orange.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B85F9AD414E3D074002C906C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B862351314E9DAA90080B174 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B862352614E9DAA90080B174 /* main.m in Sources */,
+				B862352A14E9DAA90080B174 /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B85F9AE014E3D074002C906C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B85F9AC814E3D074002C906C /* Orange */;
+			targetProxy = B85F9ADF14E3D074002C906C /* PBXContainerItemProxy */;
+		};
+		B862352F14E9DAB10080B174 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B85F9AC814E3D074002C906C /* Orange */;
+			targetProxy = B862352E14E9DAB10080B174 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		B862352214E9DAA90080B174 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B862352314E9DAA90080B174 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		B8BA9D8214EA6E1600A96485 /* test.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B8BA9D8314EA6E1600A96485 /* en */,
+			);
+			name = test.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		B85F9AEB14E3D074002C906C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_LDFLAGS = "-ObjC";
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		B85F9AEC14E3D074002C906C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = NO;
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_LDFLAGS = "-ObjC";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		B85F9AEE14E3D074002C906C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				"ARCHS[sdk=macosx10.7]" = x86_64;
+				DSTROOT = /tmp/UIViewLayout.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Orange/Orange-Prefix.pch";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos macosx";
+				USER_HEADER_SEARCH_PATHS = "$(BUILT_PRODUCTS_DIR)/**";
+				"VALID_ARCHS[sdk=macosx*]" = "x86 x86_64";
+				YACCFLAGS = "--defines=\"$(DERIVED_FILE_DIR)/y.tab.h\" --output=\"$(DERIVED_FILE_DIR)/y.tab.c\" --report=all";
+			};
+			name = Debug;
+		};
+		B85F9AEF14E3D074002C906C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/UIViewLayout.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Orange/Orange-Prefix.pch";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				USER_HEADER_SEARCH_PATHS = "$(BUILT_PRODUCTS_DIR)/**";
+				YACCFLAGS = "--defines=\"$(DERIVED_FILE_DIR)/y.tab.h\" --output=\"$(DERIVED_FILE_DIR)/y.tab.c\" --report=all";
+			};
+			name = Release;
+		};
+		B85F9AF114E3D074002C906C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "UIViewLayout/UIViewLayout-Prefix.pch";
+				INFOPLIST_FILE = "UIViewLayoutTests/UIViewLayoutTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		B85F9AF214E3D074002C906C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "UIViewLayout/UIViewLayout-Prefix.pch";
+				INFOPLIST_FILE = "UIViewLayoutTests/UIViewLayoutTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+		B862352C14E9DAA90080B174 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "test/test-Prefix.pch";
+				INFOPLIST_FILE = "test/test-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		B862352D14E9DAA90080B174 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "test/test-Prefix.pch";
+				INFOPLIST_FILE = "test/test-Info.plist";
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B85F9AC314E3D074002C906C /* Build configuration list for PBXProject "Orange" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B85F9AEB14E3D074002C906C /* Debug */,
+				B85F9AEC14E3D074002C906C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B85F9AED14E3D074002C906C /* Build configuration list for PBXNativeTarget "Orange" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B85F9AEE14E3D074002C906C /* Debug */,
+				B85F9AEF14E3D074002C906C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B85F9AF014E3D074002C906C /* Build configuration list for PBXNativeTarget "OrangeTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B85F9AF114E3D074002C906C /* Debug */,
+				B85F9AF214E3D074002C906C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B862352B14E9DAA90080B174 /* Build configuration list for PBXNativeTarget "test" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B862352C14E9DAA90080B174 /* Debug */,
+				B862352D14E9DAA90080B174 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = B85F9AC014E3D074002C906C /* Project object */;
+}

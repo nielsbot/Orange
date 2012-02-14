@@ -1,0 +1,235 @@
+%glr-parser
+%define api.pure
+
+%code requires {	
+	#define YYDEBUG 1
+	union YYSTYPE;
+	#ifndef YY_TYPEDEF_YY_SCANNER_T
+	typedef void * yyscan_t ;
+	#endif
+	
+	int yylex ( union YYSTYPE * lvalp, yyscan_t scanner, va_list argList );
+	void yyerror( yyscan_t scanner, id selfObject, va_list argList, NSArray ** outRules, const char * error ) ;
+	
+	#import "OrangeTarget.h"
+	#import "OrangeExpression.h"
+	#import "OrangeAssignment.h"
+	#import "NSObject+Orange.h"
+	#import <objc/runtime.h>
+	
+	typedef OrangeExpression * ExprPtr ;
+	typedef OrangeTarget * TargetPtr ;
+}
+
+%parse-param { yyscan_t scanner }
+%parse-param { id selfObject }
+%parse-param { va_list argList }
+%parse-param { NSArray ** outRules }
+%lex-param { yyscan_t scanner }
+%lex-param { va_list argList }
+
+%token <number> NUM
+%token <selector> SELECTOR0
+%token <selector> SELECTOR1
+%token <selector> SELECTOR2
+%token <string> KEY
+%token <string> STRING
+%token LASSIGN "<="
+%token SELF "self"
+%token OBJ
+%token MAX "max"
+%token MIN "min"
+%token SUM "sum"
+%token SIZE "size"
+%token RECT "rect"
+
+%type <target>			target
+%type <string>			keypath ;
+%type <object>			object ;
+%type <array>			exprlist ;
+%type <expression>		expr ;
+%type <assignment>		assignment ;
+%type <array>			array ;
+%type <array>			assignments ;
+%type <array>			layout ;
+//%type <array>			rules ;
+//%type <assignment>		rule ;
+
+%union {
+	NSNumber *				number ;
+	SEL						selector;
+	NSString *				key ;
+	NSString *				string ;
+	id						object ;
+	OrangeExpression *		expression ;
+	OrangeTarget *			target ;
+	OrangeAssignment *		assignment ;
+	NSArray *				array ;
+//	OrangeAssignment *		rule ;
+}
+
+%%
+
+layout:			/* empty */
+				{}
+				| assignments
+				{
+					*outRules = $1 ;
+					$$ = $1 ;
+				}
+				
+;
+
+assignment:		target "<=" expr
+				{
+					$$ = [ OrangeAssignment assignmentWithTarget:$1 expression:$3 ] ;
+				}
+				| target '{' assignments '}'
+				{
+					$$ = [ OrangeAssignmentGroup groupWithTarget:$1 assignments:$3 ] ;
+				}
+;
+				
+assignments:	assignment
+				{
+					$$ = [ NSArray arrayWithObject:$1 ] ;
+				}
+				| assignments ';' assignment
+				{
+					$$ = [ $1 isKindOfClass:[ OrangeAssignment class ] ] ? [ NSArray arrayWithObjects: $1, $3, nil ] : [ $1 arrayByAddingObject:$3 ] ;
+				}
+;
+
+expr:			NUM							{ $$ = [ [ OrangeConstant alloc ] initWithValue:$1 ] ; }
+				| STRING					{ $$ = [ [ OrangeConstant alloc ] initWithValue:$1 ] ; }
+				| '+' expr expr				
+				{
+					ExprPtr expr0 = $2, expr1 = $3 ;
+					$$ = [ OrangeExpression expressionWithFloatEvaluator:^(id scope){
+						return [ expr0 floatResult:scope ] + [ expr1 floatResult:scope ] ;
+					}];
+				}
+				| '-' expr expr				
+				{ 
+					ExprPtr expr0 = $2, expr1 = $3 ;
+					$$ = [ OrangeExpression expressionWithFloatEvaluator:^(id scope){
+						return [ expr0 floatResult:scope ] - [ expr1 floatResult:scope ] ;
+					}];
+				}
+				| '*' expr expr				
+				{ 
+					ExprPtr expr0 = $2, expr1 = $3 ;
+					$$ = [ OrangeExpression expressionWithFloatEvaluator:^(id scope){
+						return [ expr0 floatResult:scope ] * [ expr1 floatResult:scope ] ;
+					}];
+				}
+				| "sum" expr
+				{
+					ExprPtr expr = $2 ;
+					$$ = [ OrangeExpression expressionWithFloatEvaluator:^(id scope){
+						__block CGFloat sum = 0.0f ;
+						[ [ expr result:scope ] enumerateObjectsUsingBlock:^(OrangeExpression * expr, NSUInteger idx, BOOL *stop) {
+							sum += [ expr floatResult:scope ] ;
+						}];
+						return sum ;
+					}];
+				}
+				| "min" expr
+				{
+					ExprPtr expr = $2 ;				
+					$$ = [ OrangeExpression expressionWithFloatEvaluator:^(id scope){
+						__block CGFloat min = 0.0f ;
+						[ [ expr result:scope ] enumerateObjectsUsingBlock:^(OrangeExpression * expr, NSUInteger idx, BOOL *stop) {
+							min = MIN( min, [ expr floatResult:scope ] ) ;
+						}];
+						return min ;
+					}];
+				}
+				| "max" expr
+				{
+					ExprPtr expr = $2 ;
+					$$ = [ OrangeExpression expressionWithFloatEvaluator:^(id scope){
+						__block CGFloat max = 0.0f ;
+						[ [ expr result:scope ] enumerateObjectsUsingBlock:^(OrangeExpression * expr, NSUInteger idx, BOOL *stop) {
+							max = MAX( max, [ expr floatResult:scope ] ) ;
+						}];
+						return max ;
+					}];
+				}
+				| array 
+				{ 
+					$$ = [ [ OrangeConstant alloc ] initWithValue:$1 ] ; 
+				}
+				| SELECTOR0 expr
+				{
+					SEL sel = $1 ;
+					ExprPtr t = $2 ;
+					$$ = [ OrangeExpression expressionWithEvaluator:^(id scope){
+						return [ t performSelector:sel ] ;
+					}];
+				}
+				| SELECTOR1 expr expr
+				{
+					SEL sel = $1 ;
+					ExprPtr t = $2 ;
+					ExprPtr expr0 = $3 ;
+					$$ = [ OrangeExpression expressionWithEvaluator:^(id scope){
+						return [ t performSelector:sel withObject:expr0 ] ;
+					}];
+				}
+				| SELECTOR2 expr expr expr
+				{
+					SEL sel = $1 ;
+					ExprPtr t = $2, expr0 = $3, expr1 = $4 ;
+					$$ = [ OrangeExpression expressionWithEvaluator:^(id scope){
+						return [ t performSelector:sel withObject:expr0 withObject:expr1 ] ;
+					}];
+				}
+				| "size" expr expr
+				{	
+					ExprPtr expr0 = $2, expr1 = $3 ;
+					$$ = [ OrangeExpression expressionWithSizeEvaluator:^(id scope){
+						return (CGSize){ [ expr0 floatResult:scope ], [ expr1 floatResult:scope ] } ;
+					}];
+				}
+				| "rect" expr expr expr expr
+				{	
+					ExprPtr expr0 = $2, expr1 = $3, expr2 = $4, expr3 = $5 ;
+					$$ = [ OrangeExpression expressionWithRectEvaluator:^(id scope){
+						return (CGRect){ { [ expr0 floatResult:scope ], [ expr1 floatResult:scope ] },
+						{ [ expr2 floatResult:scope ], [ expr3 floatResult:scope ] } } ;
+					} ];
+				}
+				| target
+				{
+					TargetPtr t = $1 ;
+					$$ = [ OrangeExpression expressionWithEvaluator:^(id scope){
+						id target = t.baseObject ;
+						if ( !target ) { target = scope ; }
+						return [ target valueForKeyPath:t.keypath ] ;
+					} ] ;
+				}
+;
+
+exprlist:		expr						{ $$ = [ NSArray arrayWithObject:$1 ] ; }
+				| exprlist expr				
+				{ $$ = [ $1 isKindOfClass:[ OrangeExpression class ] ] ? [ NSArray arrayWithObjects:$1, $2, nil ] : [ $1 arrayByAddingObject:$2 ] ; }
+;
+
+object:			OBJ
+				| "self"					{ $$ = selfObject ; }
+;
+				
+target:			object						{ $$ = [ [ OrangeTarget alloc ] initWithTarget:$1 keypath:nil ] ; }
+				| keypath					{ $$ = [ [ OrangeTarget alloc ] initWithTarget:nil keypath:$1 ] ; }
+				| object keypath			{ $$ = [ [ OrangeTarget alloc ] initWithTarget:$1 keypath:$2 ] ; }
+;
+
+keypath:		KEY							{ $$ = $1 ; }
+				| keypath KEY				{ $$ = [ $1 stringByAppendingFormat:@".%@", $2 ] ; }
+;
+
+array:			'[' exprlist ']'			{ $$ = $2 ; }
+;
+
+%%
