@@ -7,12 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "OrangeLayout.h"
+#import "OrangeScript.h"
 
-@class OrangeLayout ;
+@class OrangeScript ;
 
 @interface UIView (Orange)
-@property ( nonatomic, retain ) OrangeLayout * orangeLayout ;
+
+@property ( nonatomic, retain ) OrangeScript * orangeScript ;
+
+// layout helpers: (adjust on frame property, not bounds)
 @property ( nonatomic, readonly ) CGFloat top ;
 @property ( nonatomic, readonly ) CGFloat bottom ;
 @property ( nonatomic ) CGFloat left ;

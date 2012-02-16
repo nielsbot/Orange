@@ -1,14 +1,14 @@
 //
-//  OrangeLayoutPrivate.h
-//  UIViewLayout
+//  OrangeScriptPrivate.h
+//	Orange
 //
 //  Created by Niels Gabel on 2/14/12.
 //  Copyright (c) 2012 nielsbot. All rights reserved.
 //
 
-#import "OrangeLayout.h"
+#import "OrangeScript.h"
 
-@interface OrangeLayout (Private)
+@interface OrangeScript (Private)
 
 -(void)apply:(id)context ;
 

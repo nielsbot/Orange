@@ -1,6 +1,6 @@
 //
 //  NSObject+Orange.h
-//  UIViewLayout
+//	Orange
 //
 //  Created by Niels Gabel on 2/13/12.
 //  Copyright (c) 2012 nielsbot. All rights reserved.

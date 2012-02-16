@@ -9,9 +9,6 @@
 #import <UIKit/UIKit.h>
 
 #import "AppDelegate.h"
-#import "OrangeLayout.h"
-
-extern int yydebug ;
 
 int main(int argc, char *argv[])
 {

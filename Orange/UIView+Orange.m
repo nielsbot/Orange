@@ -8,14 +8,17 @@
 
 #import "UIView+Orange.h"
 #import "OrangeLayoutPrivate.h"
+#import "OrangeTrigger.h"
+#import "OrangeScript.h"
 
+#import <QuartzCore/QuartzCore.h>
 #import <objc/runtime.h>
 
 static IMP sUIViewLayoutSubviews = NULL ;
 static void OrangeLayoutSubviews( UIView * self, SEL _cmd ) ;
 
 @implementation UIView (Orange)
-@dynamic orangeLayout, top, left, right, bottom, height, width;
+@dynamic orangeScript, top, left, right, bottom, height, width;
 
 +(void)initOrange
 {
@@ -26,16 +29,17 @@ static void OrangeLayoutSubviews( UIView * self, SEL _cmd ) ;
 {
 	va_list argList = NULL ;
 	va_start( argList, orangeLayoutScript ) ;
-	self.orangeLayout = [ OrangeLayout layoutWithScript:orangeLayoutScript arguments:(va_list)argList context:self ] ;
+	self.orangeScript = [ OrangeScript scriptWithFormat:orangeLayoutScript 
+											   arguments:(va_list)argList ] ;
 	va_end( argList ) ;
 }
 
--(void)setOrangeLayout:(OrangeLayout *)orangeLayout
+-(void)setOrangeScript:(OrangeScript *)orangeLayout
 {
 	[ self.layer setValue:orangeLayout forKey:@"orangeLayout" ] ;
 }
 
--(OrangeLayout*)orangeLayout
+-(OrangeScript*)orangeScript
 {
 	return [ self.layer valueForKey:@"orangeLayout" ] ;
 }
@@ -120,9 +124,11 @@ static void OrangeLayoutSubviews( UIView * self, SEL _cmd ) ;
 static void OrangeLayoutSubviews( UIView * self, SEL _cmd )
 {
 	(*sUIViewLayoutSubviews)(self, _cmd) ;
-	OrangeLayout * layout = self.orangeLayout ;
-	if ( layout )
+	OrangeScript * script = self.orangeScript;
+	NSArray * bindings = [ script bindingsForTrigger:@"layout" ] ;
+	
+	if ( bindings ) 
 	{
-		[ layout apply:self ] ;
+		[ bindings makeObjectsPerformSelector:@selector( evaluate ) ] ;
 	}
 }

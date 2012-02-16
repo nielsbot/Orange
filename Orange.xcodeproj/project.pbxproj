@@ -7,16 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B8054C9114EB611D00C5930B /* OrangeTrigger.h in Headers */ = {isa = PBXBuildFile; fileRef = B8054C8F14EB611D00C5930B /* OrangeTrigger.h */; };
+		B8054C9214EB611D00C5930B /* OrangeTrigger.m in Sources */ = {isa = PBXBuildFile; fileRef = B8054C9014EB611D00C5930B /* OrangeTrigger.m */; };
 		B82E2A6014EA85AC00CC8F6E /* Orange.lm in Sources */ = {isa = PBXBuildFile; fileRef = B82E2A5E14EA85AC00CC8F6E /* Orange.lm */; };
 		B82E2A6114EA85AC00CC8F6E /* Orange.ym in Sources */ = {isa = PBXBuildFile; fileRef = B82E2A5F14EA85AC00CC8F6E /* Orange.ym */; };
 		B82E2A6F14EA85C800CC8F6E /* NSObject+Orange.h in Headers */ = {isa = PBXBuildFile; fileRef = B82E2A6214EA85C800CC8F6E /* NSObject+Orange.h */; };
 		B82E2A7014EA85C800CC8F6E /* NSObject+Orange.m in Sources */ = {isa = PBXBuildFile; fileRef = B82E2A6314EA85C800CC8F6E /* NSObject+Orange.m */; };
-		B82E2A7114EA85C800CC8F6E /* OrangeAssignment.h in Headers */ = {isa = PBXBuildFile; fileRef = B82E2A6414EA85C800CC8F6E /* OrangeAssignment.h */; };
-		B82E2A7214EA85C800CC8F6E /* OrangeAssignment.m in Sources */ = {isa = PBXBuildFile; fileRef = B82E2A6514EA85C800CC8F6E /* OrangeAssignment.m */; };
+		B82E2A7114EA85C800CC8F6E /* OrangeBinding.h in Headers */ = {isa = PBXBuildFile; fileRef = B82E2A6414EA85C800CC8F6E /* OrangeBinding.h */; };
+		B82E2A7214EA85C800CC8F6E /* OrangeBinding.m in Sources */ = {isa = PBXBuildFile; fileRef = B82E2A6514EA85C800CC8F6E /* OrangeBinding.m */; };
 		B82E2A7314EA85C800CC8F6E /* OrangeExpression.h in Headers */ = {isa = PBXBuildFile; fileRef = B82E2A6614EA85C800CC8F6E /* OrangeExpression.h */; };
 		B82E2A7414EA85C800CC8F6E /* OrangeExpression.m in Sources */ = {isa = PBXBuildFile; fileRef = B82E2A6714EA85C800CC8F6E /* OrangeExpression.m */; };
-		B82E2A7514EA85C800CC8F6E /* OrangeLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = B82E2A6814EA85C800CC8F6E /* OrangeLayout.h */; };
-		B82E2A7614EA85C800CC8F6E /* OrangeLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = B82E2A6914EA85C800CC8F6E /* OrangeLayout.m */; };
+		B82E2A7514EA85C800CC8F6E /* OrangeScript.h in Headers */ = {isa = PBXBuildFile; fileRef = B82E2A6814EA85C800CC8F6E /* OrangeScript.h */; };
+		B82E2A7614EA85C800CC8F6E /* OrangeScript.m in Sources */ = {isa = PBXBuildFile; fileRef = B82E2A6914EA85C800CC8F6E /* OrangeScript.m */; };
 		B82E2A7714EA85C800CC8F6E /* OrangeLayoutPrivate.h in Headers */ = {isa = PBXBuildFile; fileRef = B82E2A6A14EA85C800CC8F6E /* OrangeLayoutPrivate.h */; };
 		B82E2A7814EA85C800CC8F6E /* OrangeTarget.h in Headers */ = {isa = PBXBuildFile; fileRef = B82E2A6B14EA85C800CC8F6E /* OrangeTarget.h */; };
 		B82E2A7914EA85C800CC8F6E /* OrangeTarget.m in Sources */ = {isa = PBXBuildFile; fileRef = B82E2A6C14EA85C800CC8F6E /* OrangeTarget.m */; };
@@ -55,16 +57,19 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B8054C8F14EB611D00C5930B /* OrangeTrigger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrangeTrigger.h; sourceTree = SOURCE_ROOT; };
+		B8054C9014EB611D00C5930B /* OrangeTrigger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrangeTrigger.m; sourceTree = SOURCE_ROOT; };
+		B8054C9814EC71F200C5930B /* OrangeScript_Private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = OrangeScript_Private.h; path = Orange/OrangeScript_Private.h; sourceTree = SOURCE_ROOT; };
 		B82E2A5E14EA85AC00CC8F6E /* Orange.lm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.lex; name = Orange.lm; path = Orange/Orange.lm; sourceTree = SOURCE_ROOT; };
 		B82E2A5F14EA85AC00CC8F6E /* Orange.ym */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.yacc; name = Orange.ym; path = Orange/Orange.ym; sourceTree = SOURCE_ROOT; };
 		B82E2A6214EA85C800CC8F6E /* NSObject+Orange.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSObject+Orange.h"; path = "Orange/NSObject+Orange.h"; sourceTree = SOURCE_ROOT; };
 		B82E2A6314EA85C800CC8F6E /* NSObject+Orange.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSObject+Orange.m"; path = "Orange/NSObject+Orange.m"; sourceTree = SOURCE_ROOT; };
-		B82E2A6414EA85C800CC8F6E /* OrangeAssignment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OrangeAssignment.h; path = Orange/OrangeAssignment.h; sourceTree = SOURCE_ROOT; };
-		B82E2A6514EA85C800CC8F6E /* OrangeAssignment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OrangeAssignment.m; path = Orange/OrangeAssignment.m; sourceTree = SOURCE_ROOT; };
+		B82E2A6414EA85C800CC8F6E /* OrangeBinding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OrangeBinding.h; path = Orange/OrangeBinding.h; sourceTree = SOURCE_ROOT; };
+		B82E2A6514EA85C800CC8F6E /* OrangeBinding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OrangeBinding.m; path = Orange/OrangeBinding.m; sourceTree = SOURCE_ROOT; };
 		B82E2A6614EA85C800CC8F6E /* OrangeExpression.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OrangeExpression.h; path = Orange/OrangeExpression.h; sourceTree = SOURCE_ROOT; };
 		B82E2A6714EA85C800CC8F6E /* OrangeExpression.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OrangeExpression.m; path = Orange/OrangeExpression.m; sourceTree = SOURCE_ROOT; };
-		B82E2A6814EA85C800CC8F6E /* OrangeLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OrangeLayout.h; path = Orange/OrangeLayout.h; sourceTree = SOURCE_ROOT; };
-		B82E2A6914EA85C800CC8F6E /* OrangeLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OrangeLayout.m; path = Orange/OrangeLayout.m; sourceTree = SOURCE_ROOT; };
+		B82E2A6814EA85C800CC8F6E /* OrangeScript.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OrangeScript.h; path = Orange/OrangeScript.h; sourceTree = SOURCE_ROOT; };
+		B82E2A6914EA85C800CC8F6E /* OrangeScript.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OrangeScript.m; path = Orange/OrangeScript.m; sourceTree = SOURCE_ROOT; };
 		B82E2A6A14EA85C800CC8F6E /* OrangeLayoutPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OrangeLayoutPrivate.h; path = Orange/OrangeLayoutPrivate.h; sourceTree = SOURCE_ROOT; };
 		B82E2A6B14EA85C800CC8F6E /* OrangeTarget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OrangeTarget.h; path = Orange/OrangeTarget.h; sourceTree = SOURCE_ROOT; };
 		B82E2A6C14EA85C800CC8F6E /* OrangeTarget.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OrangeTarget.m; path = Orange/OrangeTarget.m; sourceTree = SOURCE_ROOT; };
@@ -126,7 +131,7 @@
 		B85F9ABE14E3D074002C906C = {
 			isa = PBXGroup;
 			children = (
-				B85F9ACE14E3D074002C906C /* UIViewLayout */,
+				B85F9ACE14E3D074002C906C /* Orange */,
 				B862351F14E9DAA90080B174 /* test */,
 				B85F9ACB14E3D074002C906C /* Frameworks */,
 				B85F9ACA14E3D074002C906C /* Products */,
@@ -156,24 +161,28 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		B85F9ACE14E3D074002C906C /* UIViewLayout */ = {
+		B85F9ACE14E3D074002C906C /* Orange */ = {
 			isa = PBXGroup;
 			children = (
 				B82E2A6214EA85C800CC8F6E /* NSObject+Orange.h */,
 				B82E2A6314EA85C800CC8F6E /* NSObject+Orange.m */,
-				B82E2A6414EA85C800CC8F6E /* OrangeAssignment.h */,
-				B82E2A6514EA85C800CC8F6E /* OrangeAssignment.m */,
+				B82E2A6414EA85C800CC8F6E /* OrangeBinding.h */,
+				B82E2A6514EA85C800CC8F6E /* OrangeBinding.m */,
 				B82E2A6614EA85C800CC8F6E /* OrangeExpression.h */,
 				B82E2A6714EA85C800CC8F6E /* OrangeExpression.m */,
-				B82E2A6814EA85C800CC8F6E /* OrangeLayout.h */,
-				B82E2A6914EA85C800CC8F6E /* OrangeLayout.m */,
+				B82E2A6814EA85C800CC8F6E /* OrangeScript.h */,
+				B8054C9814EC71F200C5930B /* OrangeScript_Private.h */,
+				B82E2A6914EA85C800CC8F6E /* OrangeScript.m */,
 				B82E2A6A14EA85C800CC8F6E /* OrangeLayoutPrivate.h */,
 				B82E2A6B14EA85C800CC8F6E /* OrangeTarget.h */,
 				B82E2A6C14EA85C800CC8F6E /* OrangeTarget.m */,
 				B82E2A6D14EA85C800CC8F6E /* UIView+Orange.h */,
 				B82E2A6E14EA85C800CC8F6E /* UIView+Orange.m */,
 				B85F9ACF14E3D074002C906C /* Supporting Files */,
+				B8054C8F14EB611D00C5930B /* OrangeTrigger.h */,
+				B8054C9014EB611D00C5930B /* OrangeTrigger.m */,
 			);
+			name = Orange;
 			path = UIViewLayout;
 			sourceTree = "<group>";
 		};
@@ -218,12 +227,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				B82E2A6F14EA85C800CC8F6E /* NSObject+Orange.h in Headers */,
-				B82E2A7114EA85C800CC8F6E /* OrangeAssignment.h in Headers */,
+				B82E2A7114EA85C800CC8F6E /* OrangeBinding.h in Headers */,
 				B82E2A7314EA85C800CC8F6E /* OrangeExpression.h in Headers */,
-				B82E2A7514EA85C800CC8F6E /* OrangeLayout.h in Headers */,
+				B82E2A7514EA85C800CC8F6E /* OrangeScript.h in Headers */,
 				B82E2A7714EA85C800CC8F6E /* OrangeLayoutPrivate.h in Headers */,
 				B82E2A7814EA85C800CC8F6E /* OrangeTarget.h in Headers */,
 				B82E2A7A14EA85C800CC8F6E /* UIView+Orange.h in Headers */,
+				B8054C9114EB611D00C5930B /* OrangeTrigger.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -356,11 +366,12 @@
 				B82E2A6014EA85AC00CC8F6E /* Orange.lm in Sources */,
 				B82E2A6114EA85AC00CC8F6E /* Orange.ym in Sources */,
 				B82E2A7014EA85C800CC8F6E /* NSObject+Orange.m in Sources */,
-				B82E2A7214EA85C800CC8F6E /* OrangeAssignment.m in Sources */,
+				B82E2A7214EA85C800CC8F6E /* OrangeBinding.m in Sources */,
 				B82E2A7414EA85C800CC8F6E /* OrangeExpression.m in Sources */,
-				B82E2A7614EA85C800CC8F6E /* OrangeLayout.m in Sources */,
+				B82E2A7614EA85C800CC8F6E /* OrangeScript.m in Sources */,
 				B82E2A7914EA85C800CC8F6E /* OrangeTarget.m in Sources */,
 				B82E2A7B14EA85C800CC8F6E /* UIView+Orange.m in Sources */,
+				B8054C9214EB611D00C5930B /* OrangeTrigger.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

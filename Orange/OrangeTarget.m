@@ -1,6 +1,6 @@
 //
 //  OrangeTarget.m
-//  UIViewLayout
+//	Orange
 //
 //  Created by Niels Gabel on 2/13/12.
 //  Copyright (c) 2012 nielsbot. All rights reserved.
@@ -27,11 +27,24 @@
 	return self ;
 }
 
+-(id)copyWithZone:(NSZone *)zone
+{
+	OrangeTarget * result = [ [ [ self class ] alloc ] init ] ;
+	result.baseObject = self.baseObject ;
+	result.keypath = self.keypath ;
+	
+	return result ;
+}
+
+-(NSString *)description
+{
+	return [ NSString stringWithFormat:@"%@<%p> { baseObject:%@<%p> keyPath:%@ }", [ self class ], self, [ self.baseObject class ], self.baseObject, self.keypath ] ;
+}
+
 -(void)dealloc
 {
 	self.baseObject = nil ;
 	self.keypath = nil ;
-
 	[ super dealloc ] ;
 }
 

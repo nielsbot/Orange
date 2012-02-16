@@ -1,10 +1,10 @@
 %option reentrant bison-bridge noyywrap
+%option debug
+%option verbose
 
 %{
 #include "y.tab.h"
-//#define YY_USER_ACTION {printf("LEX rule %u\n", yy_act);}
-const char * const * yytname ;
-#define YY_DECL int yylex( YYSTYPE * yylval_param ,yyscan_t yyscanner, va_list argList)
+#define YY_DECL int yylex( YYSTYPE * yylval_param, yyscan_t yyscanner, va_list argList)
 %}
 
 NUM			[[:digit:]]+(.[[:digit:]]+)?
@@ -14,43 +14,53 @@ SELECTOR1	:{LETTER}+:
 SELECTOR2	:{LETTER}+:{LETTER}+:
 %s IN_COMMENT
 %s IN_STRING
+%s IN_TOKEN_LIST
 
 %%
 
 
-{NUM}			yylval->number = [ NSNumber numberWithDouble:atof( yytext ) ]; return NUM ;
-{SELECTOR0}		yylval->selector = NSSelectorFromString( [ NSString stringWithUTF8String:yytext ] ); return SELECTOR0;
-{SELECTOR1}		yylval->selector = NSSelectorFromString( [ NSString stringWithUTF8String:yytext ] ); return SELECTOR1;
-{SELECTOR2}		yylval->selector = NSSelectorFromString( [ NSString stringWithUTF8String:yytext ] ); return SELECTOR2;
-"%@"			yylval->object = va_arg( argList, id ); return OBJ ;
-\.{LETTER}+		yylval->key = [ [ NSString stringWithUTF8String:yytext ] substringFromIndex:1 ] ; return KEY;
-"}"				| 
-"{"				| 
-"+"				| 
-"-"				| 
-"*"				|
-";"				|
-"/"				return yytext[0];
-"self"			return SELF ;
-"max"			return MAX ;
-"min"			return MIN ;
-"sum"			return SUM ;
-"<="			return LASSIGN ;
-"size"			return SIZE ;
+{NUM}		 		yylval->number = [ NSNumber numberWithDouble:atof( yytext ) ]; return NUM ;
+{SELECTOR0}	 		yylval->selector = NSSelectorFromString( [ NSString stringWithUTF8String:yytext ] ); return SELECTOR0;
+{SELECTOR1}	 		yylval->selector = NSSelectorFromString( [ NSString stringWithUTF8String:yytext ] ); return SELECTOR1;
+{SELECTOR2}	 		yylval->selector = NSSelectorFromString( [ NSString stringWithUTF8String:yytext ] ); return SELECTOR2;
+"%@"		 		yylval->object = va_arg( argList, id ); return OBJ ;
+\.{LETTER}+	 		yylval->key = [ [ NSString stringWithUTF8String:yytext ] substringFromIndex:1 ] ; return KEY;
+"}"		  	 	 	return SCOPEEND ;
+"{"		  	 	 	return SCOPEBEGIN ;
+"+"		  	 	 	| 
+"-"		  	 	 	| 
+"*"		  	 	 	|
+";"		  	 	 	|
+","					|
+"/"					return yytext[0]; 
+"self"				return SELF ;
+"max"				return MAX ;
+"min"				return MIN ;
+"sum"				return SUM ;
+"<="				return BIND ;
+"CGSize"			return SIZE ;
+"CGRect"			return RECT ;
+"UIEdgeInsets"		return INSETS ;
+"CGPoint"			return POINT ;
 
 <INITIAL>{
-"/*"			BEGIN(IN_COMMENT);
-\"				BEGIN(IN_STRING);
+	"/*"			BEGIN(IN_COMMENT);
+	"\""			BEGIN(IN_STRING);
+	"<"				BEGIN(IN_TOKEN_LIST);
 }
 <IN_COMMENT>{
-"*/"      BEGIN(INITIAL);
-[^*\n]+   // eat comment in chunks
-"*"       // eat the lone star
-\n        yylineno++;
+	"*/"			BEGIN(INITIAL);
+	[^*\n]+			// eat comment in chunks
+	"*"				// eat the lone star
+	\n				yylineno++;
 }
 <IN_STRING>{
-([^"]|"\\\"")*	yylval->string = [ NSString stringWithUTF8String:yytext ]; return STRING;
-\"				BEGIN(INITIAL);
+	([^"]|"\\\"")*	yylval->string = [ NSString stringWithUTF8String:yytext ]; return STRING;
+	"\""			BEGIN(INITIAL);
+}
+<IN_TOKEN_LIST>{
+	{LETTER}+		yylval->trigger = [ NSString stringWithUTF8String:yytext ]; return TRIGGER;
+	">"				BEGIN(INITIAL);
 }
 #.*$			// ignore line comment
 [ \t\n]+
