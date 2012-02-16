@@ -9,6 +9,5 @@
 #import "OrangeScript.h"
 
 @interface OrangeScript ()
-@property ( nonatomic, retain ) NSArray * bindings ;
 
 @end

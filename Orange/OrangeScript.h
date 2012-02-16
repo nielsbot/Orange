@@ -6,7 +6,7 @@
 //  Copyright (c) 2012 nielsbot. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import "OrangeBinding.h"
 
 extern NSString * OrangeParserException ;
 
@@ -14,7 +14,7 @@ extern NSString * OrangeParserException ;
 @class OrangeTrigger ;
 @class OrangeBinding ;
 
-@interface OrangeScript : NSObject
+@interface OrangeScript : OrangeEvaluationContext
 
 +(OrangeScript*)scriptWithFormat:(NSString*)script, ... ;
 +(OrangeScript*)scriptWithFormat:(NSString*)script arguments:(va_list)argList ;

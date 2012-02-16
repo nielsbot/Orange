@@ -22,6 +22,8 @@
 @property ( nonatomic ) CGFloat right ;
 @property ( nonatomic ) CGFloat width ;
 @property ( nonatomic ) CGFloat height ;
+@property ( nonatomic, retain ) UIView * previous ;
+@property ( nonatomic, retain ) UIView * next ;
 
 +(void)initOrange ;
 -(void)setLayoutWithOrangeScript:(NSString*)orangeLayoutScript, ... NS_FORMAT_FUNCTION(1,2);

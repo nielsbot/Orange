@@ -10,17 +10,35 @@
 #import "OrangeExpression.h"
 #import "OrangeTarget.h"
 
-@interface OrangeBinding ()
-@property ( nonatomic, retain ) OrangeTarget * assignTarget ;
+@implementation OrangeEvaluationContext
+@synthesize target = _target ;
+@synthesize contained = _contained ;
 
+-(void)evaluate:(id)scope
+{
+	id target = self.target.baseObject ;
+	if ( !target )
+	{
+		target = self.target.keypath.length > 0 ? [ scope valueForKeyPath:self.target.keypath ] : scope ;
+	}
+	
+	if ( [ target conformsToProtocol:@protocol( NSFastEnumeration ) ] )
+	{
+		for( id obj in target )
+		{
+			[ self.contained makeObjectsPerformSelector:@selector( evaluate: ) withObject:obj ] ;
+		}
+	}
+	else 
+	{
+		[ self.contained makeObjectsPerformSelector:@selector( evaluate: ) withObject:target ] ;
+	}
+}
 @end
 
 @implementation OrangeBinding
 
-@synthesize target = _target ;
 @synthesize expression = _expression ;
-@synthesize scope = _scope ;
-@synthesize assignTarget = _assignTarget ;
 
 +(OrangeBinding*)bindingWithTarget:(OrangeTarget*)target expression:(OrangeExpression*)expr
 {
@@ -36,78 +54,28 @@
 	return [ NSSet setWithObjects:@"scope", @"target", nil ] ;
 }
 
--(void)evaluate
+-(void)evaluate:(id)scope
 {
-	OrangeTarget * target = self.assignTarget ;
+	id target = self.target.baseObject ;
+	if ( !target ) { target = scope ; }
 	
-	[ target.baseObject setValue:[ self.expression result:self.scope ] forKeyPath:target.keypath ] ;
-}
-
--(void)setScope:(OrangeBindingScope *)scope
-{
-	_scope = scope ;
-	self.assignTarget = nil ;
-}
-
--(void)setTarget:(OrangeTarget *)target
-{
-	[ _target release ] ;
-	_target = [ target retain ] ;
-	
-	self.assignTarget = nil ;
-}
-
--(OrangeTarget*)assignTarget
-{
-	if ( !_assignTarget )
+	if ( [ scope conformsToProtocol:@protocol( NSFastEnumeration ) ])
 	{
-		OrangeTarget * target = nil ;
-		
-		if ( self.scope )
+		for( id obj in scope )
 		{
-			target = self.scope.assignTarget ;
+			[ obj setValue:[ self.expression result:obj ] forKeyPath:self.target.keypath ] ;
 		}
-
-		if ( target )
-		{
-			target = [[ target copy ] autorelease ] ;
-			NSString * keypath = target.keypath ;
-			keypath = keypath ? [ keypath stringByAppendingFormat:@".%@", self.target.keypath ] : self.target.keypath ;
-			
-			target.keypath = keypath ;
-		}
-		else 
-		{
-			target = self.target ;
-		}
-		
-		_assignTarget = [ target retain ] ;
 	}
-	
-	return _assignTarget ;
+	else 
+	{
+		id value = [ self.expression result:target ] ;
+		[ target setValue:value forKeyPath:self.target.keypath ] ;
+	}
 }
 
 @end
 
 #pragma mark -
-
-@implementation OrangeBindingScope
-@synthesize contained = _contained ;
-
--(void)evaluate
-{
-	[ self.contained makeObjectsPerformSelector:@selector( evaluate ) ] ;
-}
-
--(void)setContained:(NSArray *)array
-{
-	[ _contained autorelease ] ;
-	_contained = [ array retain ] ;
-	
-	[ array setValue:self forKey:@"scope" ] ;
-}
-
-@end
 
 @implementation OrangeTriggerScope
 @synthesize triggers;

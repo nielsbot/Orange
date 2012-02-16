@@ -18,15 +18,13 @@ extern int yydebug ;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-	yydebug = 1 ;
-	
-	[ UIView initOrange ] ;
-	
+//	yydebug = 1 ;
+		
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
 		
-	[ self.window setLayoutWithOrangeScript:@"<layout>{ %@ { .top <= 20.0, .bottom <= 40.0f } }", self.label ] ;
+	[ self.window setLayoutWithOrangeScript:@"<layout>{ .subviews { .top <= .previous.bottom, .left <= 20 } }", self.label ] ;
     return YES;
 }
 

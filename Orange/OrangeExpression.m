@@ -37,7 +37,9 @@
 	OrangeExpression * result = [ [ [ [ self class ] alloc ] init ] autorelease ] ;
 	
 	result.floatEvaluator = block ;
-	
+	result.evaluator = (id(^)(id))^(id scope){
+		return [ NSNumber numberWithFloat:result.floatEvaluator( scope ) ] ;
+	} ;
 	return result ;
 }
 
@@ -46,6 +48,9 @@
 	if ( !block ) { return nil ; }
 	OrangeExpression * result = [ [ [ [ self class ] alloc ] init ] autorelease ] ;
 	result.sizeEvaluator = block ;
+	result.evaluator = (id(^)(id))^(id scope){
+		return [ NSValue valueWithCGSize:result.sizeEvaluator( scope ) ] ;
+	} ;
 
 	return result ;
 }
@@ -55,6 +60,9 @@
 	if ( !block ) { return nil ; }
 	OrangeExpression * result = [ [ [ [ self class ] alloc ] init ] autorelease ] ;
 	result.rectEvaluator = block ;
+	result.evaluator = (id(^)(id))^(id scope){
+		return [ NSValue valueWithCGRect:result.rectEvaluator( scope ) ] ;
+	} ;
 	
 	return result ;
 }

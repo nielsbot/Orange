@@ -39,15 +39,12 @@ void yyerror( yyscan_t scanner, id selfObject, va_list argList, OrangeScript ** 
 
 @interface OrangeScript ()
 @property ( nonatomic, copy ) NSArray * rules ;
-@property ( nonatomic, assign ) NSArray * context ;
-//@property ( nonatomic, retain ) NSMutableDictionary * bindingsByTrigger ;
+
 @end
 
 @implementation OrangeScript
 
-@synthesize rules, context = _context ;
-//@synthesize bindingsByTrigger = _bindingsByTrigger ;
-@synthesize bindings ;
+@synthesize rules ;
 
 +(OrangeScript*)_compile:(NSString*)script arguments:(va_list)argList
 {
@@ -55,7 +52,7 @@ void yyerror( yyscan_t scanner, id selfObject, va_list argList, OrangeScript ** 
 	
 	yyscan_t scanner = 0 ;
 	yylex_init ( & scanner ) ;
-	yyset_debug ( 1, scanner );
+//	yyset_debug ( 1, scanner );
 	
 	YY_BUFFER_STATE buffer =  yy_scan_string( [ script UTF8String ], scanner);
 	yyparse( scanner, nil, argList, & result ) ;
@@ -84,16 +81,15 @@ void yyerror( yyscan_t scanner, id selfObject, va_list argList, OrangeScript ** 
 - (void)dealloc
 {
     self.rules = nil ;
-	self.context = nil ;
     [super dealloc];
 }
 
 -(NSArray*)bindingsForTrigger:(NSString*)name
 {
 	NSMutableArray * result = [ NSMutableArray array ] ;
-	for( OrangeBinding * binding in self.bindings )
+	for( OrangeBinding * binding in self.contained )
 	{
-		if ( [binding isKindOfClass:[ OrangeTriggerScope class ] ] )
+		if ( [ binding isKindOfClass:[ OrangeTriggerScope class ] ] )
 		{
 			if ([ ((OrangeTriggerScope*)binding).triggers containsObject:name ] )
 			{

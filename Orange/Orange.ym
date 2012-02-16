@@ -55,7 +55,7 @@
 %type <object>			object ;
 %type <array>			exprlist ;
 %type <expression>		expr ;
-%type <binding>			statement ;
+%type <context>			statement ;
 %type <array>			statements ;
 %type <binding>			binding ;
 %type <array>			array ;
@@ -75,6 +75,7 @@
 	OrangeTriggerScope *		trigger ;
 	NSArray *					array ;
 //	NSOrderedSet *				orderedSet ;
+	OrangeEvaluationContext *	context ;
 }
 
 %%
@@ -86,7 +87,7 @@ toplevel:		/* blank */
 				| script
 				{
 					OrangeScript * script = [ [ [ OrangeScript alloc ] init ] autorelease ] ;
-					script.bindings = $1 ;
+					script.contained = $1 ;
 					*result = script ;
 				}
 ;
@@ -105,7 +106,7 @@ script:			statement
 statement:		binding
 				| target SCOPEBEGIN statements SCOPEEND
 				{
-					OrangeBindingScope * scope = [ [ [ OrangeBindingScope alloc ] init ] autorelease ] ;
+					OrangeEvaluationContext * scope = [ [ [ OrangeEvaluationContext alloc ] init ] autorelease ] ;
 					scope.target = $1 ;
 					scope.contained = $3 ;
 					

@@ -13,20 +13,21 @@
 @class OrangeTriggerScope;
 @class OrangeBindingScope ;
 
-@interface OrangeBinding : NSObject
-@property ( nonatomic, retain ) OrangeExpression * expression ;
+@interface OrangeEvaluationContext : NSObject
+
 @property ( nonatomic, retain ) OrangeTarget * target ;
-@property ( nonatomic, assign ) OrangeBindingScope * scope ;
-
--(void)evaluate ;
-
-@end
-
-@interface OrangeBindingScope : OrangeBinding
 @property ( nonatomic, retain ) NSArray * contained ;
 
+-(void)evaluate:(id)scope ;
+
 @end
 
-@interface OrangeTriggerScope : OrangeBindingScope
+@interface OrangeBinding : OrangeEvaluationContext
+
+@property ( nonatomic, retain ) OrangeExpression * expression ;
+
+@end
+
+@interface OrangeTriggerScope : OrangeEvaluationContext
 @property ( nonatomic, retain ) NSArray * triggers ;
 @end
