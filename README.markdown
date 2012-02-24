@@ -20,9 +20,13 @@ You can nest scopes:
 
     view { .backgroundColor { .red <= 0.5; .green <= 0.2; .blue < 1.0 } }
 
-Note that the bind statements inside a scope don't need to specify the target object--it is specified by the key path in the parent scope. At the top level of your scope the parent scope of the object the script is attached to. The keyword `self` means "the object to script is attached to".
+Note that the bind statements inside a scope don't need to specify the target object--it is specified by the key path in the parent scope. 
+At the top level of your script the parent scope is the object the script is attached to. 
+The keyword `self` represents "the object to script is attached to".
 
-Normally bindings are always ‘live’. Changes in the expression are applied at the destination keypath immediately. You can specify a __trigger__ as a scope and this causes your bindings to run only at certain times. For example, you can use the trigger `"layout"` to run your bindings during `-layoutSubviews`:
+Normally bindings are always ‘live’. Changes in the expression are applied at the destination keypath immediately. 
+You can specify a __trigger__ as a scope and this causes your bindings to run only at certain times. 
+For example, you can use the trigger `"layout"` to run your bindings during `-layoutSubviews`:
 
     <layout> {
         .subviews {
@@ -35,11 +39,11 @@ Compile your scripts like this:
 
     [ OrangeScript scriptWithContext:myObject format:@".height <= 20" ] ;
 
-You can refer to object instances in Orange script by passing them as arguments:
+You can refer to object instances in Orange script by passing them as additional arguments to the compiler:
 
     [ OrangeScript scriptWithContext:myObject format:@".title <= %@.title", titleContainer ] ;
 
-This works a lot like printf arguments... The only supported placeholder is `%@`.
+This works like printf... Use the `%@` specifier.
 
 Expressions
 -----------
