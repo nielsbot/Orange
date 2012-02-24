@@ -75,6 +75,7 @@
 		B82E2A6C14EA85C800CC8F6E /* OrangeTarget.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OrangeTarget.m; path = Orange/OrangeTarget.m; sourceTree = SOURCE_ROOT; };
 		B82E2A6D14EA85C800CC8F6E /* UIView+Orange.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+Orange.h"; path = "Orange/UIView+Orange.h"; sourceTree = SOURCE_ROOT; };
 		B82E2A6E14EA85C800CC8F6E /* UIView+Orange.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+Orange.m"; path = "Orange/UIView+Orange.m"; sourceTree = SOURCE_ROOT; };
+		B84BE0A114F7A30600874559 /* README.markdown */ = {isa = PBXFileReference; lastKnownFileType = text; path = README.markdown; sourceTree = "<group>"; };
 		B85F9AC914E3D074002C906C /* libOrange.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libOrange.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		B85F9AD014E3D074002C906C /* Orange-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "Orange-Prefix.pch"; path = "Orange/Orange-Prefix.pch"; sourceTree = "<group>"; };
 		B85F9AD914E3D074002C906C /* UIViewLayoutTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = UIViewLayoutTests.octest; path = OrangeTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -131,6 +132,7 @@
 		B85F9ABE14E3D074002C906C = {
 			isa = PBXGroup;
 			children = (
+				B84BE0A114F7A30600874559 /* README.markdown */,
 				B85F9ACE14E3D074002C906C /* Orange */,
 				B862351F14E9DAA90080B174 /* test */,
 				B85F9ACB14E3D074002C906C /* Frameworks */,
