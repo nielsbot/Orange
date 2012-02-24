@@ -9,6 +9,7 @@
 #import "OrangeScript_Private.h"
 #import "y.tab.h"
 
+extern int yydebug ;
 NSString * OrangeParserException = @"OrangeParserException" ;
 
 extern void yyparse( yyscan_t scanner, id selfObject, va_list argList, OrangeScript ** result );
@@ -53,6 +54,7 @@ void yyerror( yyscan_t scanner, id selfObject, va_list argList, OrangeScript ** 
 	yyscan_t scanner = 0 ;
 	yylex_init ( & scanner ) ;
 //	yyset_debug ( 1, scanner );
+	yydebug = 1 ;
 	
 	YY_BUFFER_STATE buffer =  yy_scan_string( [ script UTF8String ], scanner);
 	yyparse( scanner, nil, argList, & result ) ;
@@ -98,6 +100,11 @@ void yyerror( yyscan_t scanner, id selfObject, va_list argList, OrangeScript ** 
 		}
 	}
 	return result ;
+}
+
+-(void)bind:(id)contextObject
+{
+	
 }
 
 //

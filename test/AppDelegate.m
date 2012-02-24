@@ -17,14 +17,12 @@ extern int yydebug ;
 @synthesize label = _label;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{
-//	yydebug = 1 ;
-		
+{		
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
 		
-	[ self.window setLayoutWithOrangeScript:@"<layout>{ .subviews { .top <= .previous.bottom, .left <= 20 } }", self.label ] ;
+	[ self.window setLayoutWithOrangeScript:@"<layout>{ .subviews { [0].top <= 60.0; [1..].top <= .previous.bottom,*/ .left <= 20.0 } }", self.label ] ;
     return YES;
 }
 

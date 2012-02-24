@@ -23,5 +23,6 @@ extern NSString * OrangeParserException ;
 //-(NSArray*)allBindings ;
 //-(void)addBinding:(OrangeBinding*)binding forTrigger:(NSString*)name ;
 //-(void)addBinding:(OrangeBinding*)binding ;
+-(void)bind:(id)contextObject ;
 
 @end

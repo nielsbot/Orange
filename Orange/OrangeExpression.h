@@ -15,6 +15,7 @@
 +(OrangeExpression*)expressionWithFloatEvaluator:(float(^)(id scope))block ;
 +(OrangeExpression*)expressionWithSizeEvaluator:(CGSize(^)(id scope))block ;
 +(OrangeExpression*)expressionWithRectEvaluator:(CGRect(^)(id scope))block ;
+
 -(id)result:(id)scope ;
 -(float)floatResult:(id)scope ;	// may be more efficient than -result
 -(CGSize)sizeResult:(id)scope ;

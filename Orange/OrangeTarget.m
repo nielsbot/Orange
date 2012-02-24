@@ -13,24 +13,13 @@
 
 @implementation OrangeTarget
 
-@synthesize baseObject = _baseObject ;
+@synthesize getBaseObject = _getBaseObject ;
 @synthesize keypath = _keypath ;
-
--(OrangeTarget*)initWithTarget:(id)target keypath:(NSString*)keypath
-{
-	if (( self = [ super init ] ))
-	{
-		self.baseObject = target ;
-		self.keypath = keypath ;		
-	}
-	
-	return self ;
-}
 
 -(id)copyWithZone:(NSZone *)zone
 {
 	OrangeTarget * result = [ [ [ self class ] alloc ] init ] ;
-	result.baseObject = self.baseObject ;
+	result.getBaseObject = self.getBaseObject ;
 	result.keypath = self.keypath ;
 	
 	return result ;
@@ -38,24 +27,19 @@
 
 -(NSString *)description
 {
-	return [ NSString stringWithFormat:@"%@<%p> { baseObject:%@<%p> keyPath:%@ }", [ self class ], self, [ self.baseObject class ], self.baseObject, self.keypath ] ;
+	return [ NSString stringWithFormat:@"%@<%p> { getBaseObject:%@<%p> keyPath:%@ }", [ self class ], self, [ self.getBaseObject class ], self.getBaseObject, self.keypath ] ;
 }
 
 -(void)dealloc
 {
-	self.baseObject = nil ;
+	self.getBaseObject = nil ;
 	self.keypath = nil ;
 	[ super dealloc ] ;
 }
 
--(void)setBaseObject:(id)baseObject
+-(id)resolve:(id)scope
 {
-	_baseObject = baseObject ;
-}
-
--(void)setKeypath:(NSString *)keypath
-{
-	_keypath = [ keypath copy ] ;
+	return [ self.getBaseObject( scope ) valueForKeyPath:self.keypath ] ;
 }
 
 @end

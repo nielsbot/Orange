@@ -10,9 +10,9 @@
 
 @interface OrangeTarget : NSObject<NSCopying>
 
-@property ( nonatomic, assign ) id baseObject ;
+@property ( nonatomic, copy ) id (^getBaseObject)(id scope) ;
 @property ( nonatomic, copy ) NSString * keypath ;
 
--(OrangeTarget*)initWithTarget:(id)target keypath:(NSString*)keypath ;
+-(id)resolve:(id)scope ;
 
 @end

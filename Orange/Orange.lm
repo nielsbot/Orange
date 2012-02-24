@@ -7,46 +7,36 @@
 #define YY_DECL int yylex( YYSTYPE * yylval_param, yyscan_t yyscanner, va_list argList)
 %}
 
-NUM			[[:digit:]]+(.[[:digit:]]+)?
+INTEGER		[[:digit:]]+
+FLOAT		[[:digit:]]+.[[:digit:]]+
 LETTER		[[:alnum:][:ALNUM:]]
-SELECTOR0	:{LETTER}+
-SELECTOR1	:{LETTER}+:
-SELECTOR2	:{LETTER}+:{LETTER}+:
 %s IN_COMMENT
 %s IN_STRING
-%s IN_TOKEN_LIST
+%s IN_TRIGGER
 
 %%
 
 
-{NUM}		 		yylval->number = [ NSNumber numberWithDouble:atof( yytext ) ]; return NUM ;
-{SELECTOR0}	 		yylval->selector = NSSelectorFromString( [ NSString stringWithUTF8String:yytext ] ); return SELECTOR0;
-{SELECTOR1}	 		yylval->selector = NSSelectorFromString( [ NSString stringWithUTF8String:yytext ] ); return SELECTOR1;
-{SELECTOR2}	 		yylval->selector = NSSelectorFromString( [ NSString stringWithUTF8String:yytext ] ); return SELECTOR2;
+{FLOAT}		 		yylval->number = [ NSNumber numberWithDouble:atof( yytext ) ]; return FLOAT ;
+{INTEGER}		 	yylval->integer = atoi( yytext ); return INTEGER ;
+
 "%@"		 		yylval->object = va_arg( argList, id ); return OBJ ;
 \.{LETTER}+	 		yylval->key = [ [ NSString stringWithUTF8String:yytext ] substringFromIndex:1 ] ; return KEY;
-"}"		  	 	 	return SCOPEEND ;
-"{"		  	 	 	return SCOPEBEGIN ;
-"+"		  	 	 	| 
-"-"		  	 	 	| 
-"*"		  	 	 	|
-";"		  	 	 	|
-","					|
-"/"					return yytext[0]; 
 "self"				return SELF ;
 "max"				return MAX ;
 "min"				return MIN ;
 "sum"				return SUM ;
 "<="				return BIND ;
+".."				return SEQ ;
 "CGSize"			return SIZE ;
 "CGRect"			return RECT ;
 "UIEdgeInsets"		return INSETS ;
 "CGPoint"			return POINT ;
-
+[<>{}+\-*/:,;\[\]]	return yytext[0];
+{LETTER}+			yylval->string = [ NSString stringWithUTF8String:yytext ]; return WORD;
 <INITIAL>{
 	"/*"			BEGIN(IN_COMMENT);
 	"\""			BEGIN(IN_STRING);
-	"<"				BEGIN(IN_TOKEN_LIST);
 }
 <IN_COMMENT>{
 	"*/"			BEGIN(INITIAL);
@@ -58,9 +48,6 @@ SELECTOR2	:{LETTER}+:{LETTER}+:
 	([^"]|"\\\"")*	yylval->string = [ NSString stringWithUTF8String:yytext ]; return STRING;
 	"\""			BEGIN(INITIAL);
 }
-<IN_TOKEN_LIST>{
-	{LETTER}+		yylval->trigger = [ NSString stringWithUTF8String:yytext ]; return TRIGGER;
-	">"				BEGIN(INITIAL);
-}
 #.*$			// ignore line comment
 [ \t\n]+
+
