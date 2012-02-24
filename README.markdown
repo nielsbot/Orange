@@ -7,7 +7,7 @@ The basic construct in Orange is a __bind statement__. It looks like this:
 
     object.keypath <= expression
 
-This means "when the result of expression changes, assign it to the location at `object.keypath`".
+This means "when the result of expression changes, assign it to the location at `object.keypath`.
 
 You can put bind statements inside a __scope__. This allows you to bind multiple key paths of a single object:
 
