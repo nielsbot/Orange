@@ -1,6 +1,9 @@
 Orange!
 =======
 
+Orange Script
+-------------
+
 Orange is a data binding language you can use in your iOS projects--you can replace your controller code with it. It's also good for writing layout code.
 
 The basic construct in Orange is a __bind statement__. It looks like this:
