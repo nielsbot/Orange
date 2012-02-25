@@ -1,6 +1,9 @@
 Orange!
 =======
 
+--> Note this is a work in progess... 
+In fact some things described here are how things are *supposed* to work but some features are unimplemented.
+
 Orange is a data binding language you can use in your iOS projects--you can replace your controller code with it. It's also good for writing layout code.
 
 The basic construct in Orange is a __bind statement__. It looks like this:
@@ -75,3 +78,7 @@ you can also optionally group subexpressions using parentheses:
 	#
 
 	+ ( - 10 7 ) 15
+
+you can message objects just like in Obj-C:
+
+	[ UIImage imageNamed:"test.png" ]
