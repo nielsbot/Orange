@@ -36,6 +36,7 @@
 %token BIND "<="
 %token SELF "@"
 %token SEQ ".."
+%token NOTHING "nothing"
 %token MAX
 %token MIN
 %token SUM
